@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href='/static/css/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    
+
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% endif %}
+    <div class="container">
+        <div class="form-box">
+            <h1>Login</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <img src="" alt="">
+                    <div class="input-field">
+                        <span><img src="/static/images/user.png" alt="Icon" width="20px" height="20px" /></span>
+                        <input type="text" placeholder="Enter Username" name="login_user_name" required />
+                    </div>
+
+                    <div class="input-field">
+                        <span><img src="/static/images/password.png" alt="Icon" width="20px" height="25px" /></span>
+                        <input type="password" placeholder="Enter Password" id="password" name="login_password"
+                            required />
+                        <i class="fa-solid fa-eye" id="show-password"></i>
+                    </div>
+                    <div id="login-links">
+                        <input type="checkbox" class="Checkbox" />
+                        <label class="remember">Remember</label>
+                        <a class="forget" href="/forgot">Forget Password?</a>
+                    </div>
+                </div>
+
+                <div class="btn-field">
+                    <button type="submit">Submit</button>
+                    <button type="button">Cancel</button>
+                </div>
+                <p style="margin-top: 20px;">Don't have an account?<a class="signup-link" href="/signup">Signup
+                        here</a></p>
+            </form>
+        </div>
+
+        <div class="wrapper">
+            <!-- <header>Captcha</header> -->
+            <div class="captcha-area">
+                <div class="captcha-img">
+                    <img src="https://th.bing.com/th/id/OIP.ego98MuNmMGNbTwirWA6AAHaCe?pid=ImgDet&rs=1"
+                        alt="Captch Background">
+                    <span class="captcha"></span>
+                </div>
+                <button class="reload-btn"><i class="fas fa-redo-alt"></i></button>
+            </div>
+            <form action="#" class="input-area">
+                <input class="input-filled" type="text" placeholder="Enter captcha here" maxlength="6"
+                    spellcheck="false" required>
+                <button class="check-btn">Verify</button>
+            </form>
+            <div class="status-text"></div>
+        </div>
+    </div>
+    <script src="/static/js/captcha.js"></script>
+</body>
+
+
+</html>
