@@ -49,6 +49,7 @@ def Signup(request):
                                    confirm_password=confirm__password, email=email, contact_number=phone_number, company_name=company_name)
                 my_user.set_password(password)
                 my_user.save()
+                # sending mail to user
                 subject = "About Registration"
                 message = f'Hi {user_name},\n\nThank you for registering with us.\n\nRegards,\nTeam Data Engineering'
                 email_from = 'rishabhmalakar27@gmail.com'
