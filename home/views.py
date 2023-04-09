@@ -4,11 +4,9 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from .models import SiteUser
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
-
-# Create your views here.
-
-
+# code for login
 def login(request):
     # here we are checking for valid user
     if request.method == 'POST':
@@ -26,11 +24,11 @@ def login(request):
     else:
         return render(request, 'index.html')
 
-
+#code for forgot password
 def forgot(request):
     return render(request, 'forgot.html')
 
-
+#code for signup
 def Signup(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
@@ -51,6 +49,11 @@ def Signup(request):
                                    confirm_password=confirm__password, email=email, contact_number=phone_number, company_name=company_name)
                 my_user.set_password(password)
                 my_user.save()
+                subject = "About Registration"
+                message = f'Hi {user_name},\n\nThank you for registering with us.\n\nRegards,\nTeam Data Engineering'
+                email_from = 'rishabhmalakar27@gmail.com'
+                recipient_list = [email,]
+                send_mail( subject, message, email_from, recipient_list )
                 messages.success(request, 'User created successfully')
                 return redirect('/')
         else:
@@ -59,12 +62,12 @@ def Signup(request):
             return redirect('signup')
     return render(request, 'signup.html')
 
-
+#code for dashboard
 @login_required(login_url='/')
 def dashboard(request):
     return render(request, 'data_size.html')
 
-
+#code for logout
 def logout(request):
     auth_logout(request)
     messages.success(request, 'Logged out successfully')
