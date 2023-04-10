@@ -26,6 +26,17 @@ def login(request):
 
 #code for forgot password
 def forgot(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        if SiteUser.objects.filter(email=email).exists():
+            messages.success(request, 'Email sent successfully')
+            print("Email sent successfully")
+            return redirect('forgot')
+        else:
+            messages.error(request, 'Email does not exist')
+            print("Email does not exist")
+            return redirect('forgot')
+
     return render(request, 'forgot.html')
 
 #code for signup
