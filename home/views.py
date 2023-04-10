@@ -36,7 +36,6 @@ def forgot(request):
             messages.error(request, 'Email does not exist')
             print("Email does not exist")
             return redirect('forgot')
-
     return render(request, 'forgot.html')
 
 #code for signup
