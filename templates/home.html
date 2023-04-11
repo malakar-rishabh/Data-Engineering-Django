@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script src="/static/js/script.js"></script>
+    <title>Home</title>
+</head>
+<body>
+
+  <!-- {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+  {% endif %} -->
+
+    <div class="container">
+        <!-- <img src="/static/images/data_bg2.jpg" alt="Norway" style="width:100%;"> -->
+
+
+        <div class="text">
+          <h1 style="text-align: left;">Data.Dot</h1>   
+          
+        </div>
+        {% csrf_token %}
+        <a action="/logout" class="logout-btn" class="logout-btn" href="{% url 'logout' %}">LogOut</a>
+
+        <!-- <div id="tabs">
+       <div onclick="showDiv('box1')" class="tab active text-block1">
+           <h3>Data Size Estimation</h3>
+
+        </div>
+        <div onclick="showDiv('box2')" class="tab text-block2">
+            <h3>Cluster Sizing Estimation</h3>
+        </div> 
+        <div class="tab text-block3">
+            <h3>Sheet 01</h3>
+        </div> 
+      </div> -->
+      </div>
+
+
+      <div id="tabs">
+        <div onclick="showDiv('box1')" class="tab active text-block1">
+            <h3>Data Size Estimation</h3>
+ 
+         </div>
+         <div onclick="showDiv('box2')" class="tab text-block2">
+             <h3>Cluster Sizing Estimation</h3>
+         </div> 
+         <div class="tab text-block3">
+             <h3>Sheet 01</h3>
+         </div> 
+       </div>
+
+
+      <div id="box1" class="box">
+        <table style="width: 80%">
+        <tr>
+          <td style="background-color:#EEEDFD;">Existing Data Size</td>
+          <td colspan="2">2413.75</td>
+        </tr>
+        <tr>
+          <td style="background-color:#EEEDFD;">Overall Average Estimated % Quaterly Volume Incremental</td>
+          <td colspan="2">36%</td>
+        </tr>
+        <tr>
+          <td style="background-color:#EEEDFD;">Additional Data Size(% of Existing Data)</td>
+          <td style="width: 6rem;" >10%</td> 
+          <td>241.375</td>
+        </tr>
+       </table>
+       <div class="section-heading">
+       <h2>Existing System Analysis</h2>
+      </div>
+    </div>
+
+    <div id="box2" class="cluster-container">
+      <div class="section-heading">
+          <h2>Rough Calculation</h2>
+         </div>
+    <div class="table-group1">
+      <table class="cluster-table">
+        <thead>
+          <tr>
+            <td colspan="2">User Inputs</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Raplication Factor</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <td>Intermediate Data</td>
+            <td>1</td>
+          </tr>
+
+          <tr>
+            <td>Available disk size for storage(TR)</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="cluster-table2">
+        <thead>
+          <tr>
+            <td colspan="2">Inputs Derived from Data Size Estimation</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Existing Data Size(TB)</td>
+            <td>2.59</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="cluster-table3">
+        <thead>
+          <tr>
+            <td colspan="2">Calculations</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Storage requirement(TB)</td>
+            <td>10.4</td>
+          </tr>
+
+          <tr>
+            <td>Total number of required data nodes(approx.)</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-heading">
+      <h2>Actual Calculation</h2>
+     </div>
+
+    <div class="table-group2">
+      <table class="cluster-table4">
+        <thead>
+          <tr>
+            <td colspan="2">User Inputs</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Disk space utilization</td>
+            <td>70%</td>
+          </tr>
+
+          <tr>
+            <td>Compression ratio</td>
+            <td>2.3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="cluster-table5">
+          <thead>
+              <tr>
+                <td colspan="2">Calculations</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total storage requirement(TB)</td>
+                <td>4.5</td>
+              </tr>
+  
+              <tr>
+                <td>Available disk size for storage(TB)</td>
+                <td>1.4</td>
+              </tr>
+  
+              <tr>
+                <td>Total number of required data nodes (approx.)</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                  <td>Actual usable cluster size(100%)(TB)</td>
+                  <td>4</td>
+                </tr>
+
+            </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    // Get the container element
+let tabsContainer = document.getElementById("tabs");
+
+// Get all buttons with class="btn" inside the container
+let tabs = tabsContainer.getElementsByClassName("tab");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < tabs.length; i++) {
+  tabs[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+  </script>
+</body>
+</html>

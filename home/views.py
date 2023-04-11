@@ -66,7 +66,7 @@ def Signup(request):
 #code for dashboard
 @login_required(login_url='/')
 def dashboard(request):
-    return render(request, 'data_size.html')
+    return render(request, 'home.html')
 
 #code for logout
 def logout(request):
