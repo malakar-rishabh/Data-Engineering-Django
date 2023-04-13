@@ -1,3 +1,4 @@
+
 function togglePasswordVisibility() {
     const passwordInput = document.getElementById("password");
     const togglePassword = document.querySelector(".toggle-password");
@@ -13,15 +14,7 @@ function togglePasswordVisibility() {
     }
   }
 
-
-  function showDiv(divId) {
-    var div = document.getElementById(divId);
-    div.style.display = "block";
-    
-    var otherDivId = (divId === "div1") ? "div2" : "div1";
-    var otherDiv = document.getElementById(otherDivId);
-    otherDiv.style.display = "none";
-  }
   
+
   
   

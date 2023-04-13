@@ -45,8 +45,8 @@ body {
   padding: 30px;
 }
 
-.signup-form .form-group row {
-  margin-bottom: 20px;
+.row {
+  margin-bottom: 15px;
 }
 
 .signup-form label {
@@ -94,5 +94,37 @@ body {
 }
 
 .text-center {
-  color: #ffffff;
+  margin-top: 1.5em;
+  color: #999;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #47A8F5; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 0 0 1em 1em;
+  text-align: center;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
 }
