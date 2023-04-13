@@ -1,346 +1,187 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 
-* {
-  padding: 0px;
-  margin: 0px;
-}
 
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Montserrat', sans-serif;
-  background-image: url('/static/images/login_background.jpg');
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
 
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
 .container {
-  width: 100%;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  margin: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/static/images/login_background.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
 
-.form-box {
-  width: 90%;
-  max-width: 300px;
-  position: absolute;
-  top: 50%;
-  left: 75%;
-  right: 100px;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  padding: 50px 60px 70px;
-  text-align: left;
-  border-radius: 5px;
-  height: 500px;
+.form-box{
+    width: 90%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    right: 100px;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: left;
+    border-radius: 5px;
+    /* height: 30px; */
 }
 
-.form-box h1 {
-  font-size: 30px;
-  margin-bottom: 30px;
-  font-weight: 800;
-  color: #36AA87;
-  position: relative;
+.form-box h1{
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    color: #36AA87;
+    position: relative;
 }
 
-.input-field {
-  background: transparent;
-  margin: 15px 0;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  border-color: #CCCDD4;
+.input-field{
+   background: transparent;
+   margin: 15px 0;
+   border-radius: 5px;
+   display: flex; 
+   align-items: center;
+   border-width: 1px 1px 1px 1px;
+   border-style: solid;
+   border-color: #CCCDD4;
 }
 
-input {
-  width: 100%;
-  background: transparent;
-  border: 0;
-  outline: 0;
-  padding: 18px;
-
+input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px;
+    
 }
 
-.input-field span {
-  margin-left: 15px;
-
+.input-field span{
+    margin-left: 15px;
+    
 }
-
-::selection {
-  color: #fff;
-  background: #4db2ec;
+.checkbox{
+    width: 6%;
 }
-
-
-.wrapper {
-  max-width: 300px;
-  width: 100%;
-  background: #fff;
-  /* margin-top: 20px; */
-  border-radius: 5px;
-  /* border: 1px solid #555; */
-  height: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  top: 46%;
-  position: relative;
-  left: 65%;
-  margin-top: 28px;
-}
-
-.wrapper header {
-  color: #36aa87;
-  font-size: 33px;
-  font-weight: 500;
-  text-align: center;
-  display: none;
-}
-
-.wrapper .captcha-area {
-  display: flex;
-  height: 50px;
-  margin: 0px;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.captcha-area .captcha-img {
-  height: 100%;
-  width: 240px;
-  user-select: none;
-  background: #000;
-  border-radius: 5px;
-  position: relative;
-}
-
-.captcha-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-  opacity: 0.95;
-}
-
-.captcha-img .captcha {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 100%;
-  color: #fff;
-  font-size: 25px;
-  text-align: center;
-  letter-spacing: 10px;
-  transform: translate(-50%, -50%);
-  text-shadow: 0px 0px 2px #b1b1b1;
-  font-family: 'Noto Serif', serif;
-}
-
-.wrapper button {
-  outline: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  background: #36aa87;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.wrapper button:hover {
-  background: #2fa5e9;
-}
-
-.captcha-area .reload-btn {
-  width: 50px;
-  height: 100%;
-  font-size: 25px;
-}
-
-.captcha-area .reload-btn i {
-  transition: transform 0.3s ease;
-}
-
-.captcha-area .reload-btn:hover i {
-  transform: rotate(15deg);
-}
-
-.wrapper .input-area {
-  height: 60px;
-  width: 100%;
-  position: relative;
-}
-
-.input-area input {
-  width: 100%;
-  height: 100%;
-  outline: none;
-  padding-left: 20px;
-  font-size: 20px;
-  border-radius: 5px;
-  border: 1px solid #bfbfbf;
-}
-
-.input-area input:is(:focus, :valid) {
-  padding-left: 19px;
-  border: 2px solid #36aa87;
-}
-
-.input-area input::placeholder {
-  color: #bfbfbf;
-}
-
-.input-area .check-btn {
-  position: absolute;
-  right: 7px;
-  top: 50%;
-  font-size: 17px;
-  height: 45px;
-  padding: 0 20px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
-
-.input-area input:valid+.check-btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.wrapper .status-text {
-  display: none;
-  font-size: 18px;
-  text-align: center;
-  /* margin: 20px 0 -5px; */
-  height: 20%;
-  /* border: 2px solid black; */
-}
-
-@media (max-width: 506px) {
-  body {
-    padding: 0 10px;
-  }
-
-  .wrapper {
-    padding: 22px 25px 35px;
-  }
-
-  .wrapper header {
-    font-size: 25px;
-  }
-
-  .wrapper .captcha-area {
-    height: 60px;
-  }
-
-  .captcha-area .captcha {
-    font-size: 28px;
-    letter-spacing: 5px;
-  }
-
-  .captcha-area .reload-btn {
-    width: 60px;
-    margin-left: 5px;
-    font-size: 20px;
-  }
-
-  .wrapper .input-area {
-    height: 55px;
-  }
-
-  .input-area .check-btn {
-    height: 40px;
-  }
-
-  .wrapper .status-text {
+.remember{
+    text-decoration: none;
+    color: green;
     font-size: 15px;
+    margin-right: 19px;
+}
+
+.forget{
+    text-decoration: none;
+    color:green;
+    font-size: 15px;
+   float: right;
+}
+.forget:hover , .signup-link:hover{
+    color: #36AA87;
+}
+
+.btn-field{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn-field button{
+    flex-basis: 42%;
+    background: #2C2C2C;
+    color: white;
+    height: 40px;
+    border-radius: 4px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 0.1s;
+    font-size: larger;
+}
+
+.btn-field :last-child{
+    background: #595959;
+    
+}
+.btn-field :last-child:hover{
+           background-color: rgb(232, 12, 12);
+
+}
+.btn-field button:hover{
+    background-color: #0d9956;
+    
+}
+.fa-eye
+{
+    color: lightgray;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#firstname {
+    margin-right: 20px;
   }
 
-  .captcha-area .captcha-img {
-    width: 250px;
+.name-fields{
+    display: flex;
+}
+
+.signup-link{
+    color:green;
+}
+
+
+@media only screen and (max-width: 1224px) {  
+  .form-box {
+    left: 70%;
+  }  
+}
+
+@media only screen and (max-width: 920px) {  
+  .form-box {
+    left: 50%; 
+    text-align: center; 
+  }  
+}
+
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #47A8F5; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 0 0 1em 1em;
+    text-align: center;
   }
-}
+  
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
 
-
-
-
-.checkbox {
-  width: 6%;
-}
-
-.remember {
-  text-decoration: none;
-  color: green;
-  font-size: 15px;
-  margin-right: 19px;
-}
-
-.forget {
-  text-decoration: none;
-  color: green;
-  font-size: 15px;
-  float: right;
-}
-
-.forget:hover {
-  color: #36AA87;
-}
-
-.btn-field {
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 225px;
-}
-
-.btn-field button {
-  flex-basis: 42%;
-  background: #2C2C2C;
-  color: white;
-  height: 40px;
-  border-radius: 4px;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  transition: background 0.1s;
-  font-size: larger;
-}
-
-.btn-field :last-child {
-  background: #595959;
-
-}
-
-.btn-field :last-child:hover {
-  background-color: rgb(232, 12, 12);
-
-}
-
-.btn-field button:hover {
-  background-color: #0d9956;
-
-}
-
-.fa-eye {
-  color: lightgray;
-  font-size: 20px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.signup-link {
-  margin-left: 5px;
-  color: green;
-
-}
-
-.signup-link:hover {
-  color: #3e9a7e;
-  text-decoration: none;
-}
+  

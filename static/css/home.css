@@ -1,0 +1,254 @@
+/* Container holding the image and the text */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700;800&display=swap');
+body{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  
+}
+.container {
+    position: relative;
+    background-image: url(/static/images/data_bg2.jpg);
+    height: 150px;
+  }
+  
+  .text {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .text-block1{
+    position: static;
+    bottom: -2px;
+    right: 519px;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+
+    width: 200px;
+    border: 1px solid white;
+    border-bottom-width: 0px;
+    border-radius: 0.4em 0.4em 0 0;
+    padding: 5px;
+    margin: 2px;
+ }
+
+ .text-block2 {
+    position: static;
+    bottom: -2px;
+    right: 250px;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+
+    width: 250px;
+    border: 1px solid white;
+    border-bottom-width: 0px;
+    border-radius: 0.4em 0.4em 0 0;
+    padding: 5px;
+    margin: 2px;
+ }
+
+ .text-block3 {
+    position: static;
+    bottom: -2px;
+    right: 130px;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    width: 100px;
+    border: 1px solid white;
+    border-bottom-width: 0px;
+    border-radius: 0.4em 0.4em 0 0;
+    padding: 5px;
+    margin: 2px;
+
+ }
+
+ .box {
+  
+  /* border-width: 90px; */
+  margin-left: 40px;
+  margin-right: 40px;
+  border: 1px solid #babbc2;
+  /* width: 90px; */
+  margin-top: 20px; 
+ }
+
+ .section-heading {
+  background-color: #125160;
+  color: white;
+  line-height: 50px;
+  width: 100%;
+ }
+
+ table, th, td {
+  border-spacing: 0;
+    border: 1px solid #CCCDD4;
+    border-collapse: collapse;
+    margin-top: 20px;
+    height: 40px;
+  }
+
+  .text-block1:hover,.text-block2:hover,.text-block3:hover {
+   background-color: rgba(71, 255, 200, 0.703);
+ }
+
+ table{
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .cluster-table{
+  width: 33%;
+  max-width: 440px;
+ }
+
+ .cluster-container{
+  margin: 20px 40px;
+  border: 1px solid black;
+ }
+
+ .table-group1{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+ }
+
+.table-group1 thead , .table-group2 thead{
+     background-color: #19BA84; 
+     padding: 50px;
+ }
+
+ .table-group1 td , .table-group2 td{
+  padding: 0 35px;
+  text-align: center;
+ }
+
+ .table-group2{
+  display: flex;
+  flex-wrap: wrap;
+ }
+
+ #box2{
+  display: none;
+ }
+
+ /* table {
+  margin-bottom: 2em;
+  border-spacing: 0pt;
+  border-collapse: separate;
+}
+
+th,
+td {
+  padding: 10pt;
+  border: 1px solid #502481;
+}
+
+table tr:first-child th:first-child,
+table tr:first-child td:first-child {
+  border-top-left-radius: 15px;
+}
+
+table tr:first-child th:last-child,
+table tr:first-child td:last-child {
+  border-top-right-radius: 15px;
+}
+
+table tr:last-child th:first-child,
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+table tr:last-child th:last-child,
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
+} */
+
+.active, .tab:hover {
+  background-color: #19BA84;
+  color: white;
+}
+
+.logout-btn:hover {
+  color: #19BA84;
+  cursor: pointer;
+}
+
+.logout-btn{
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+#tabs{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70px;
+}
+
+@media only screen and (max-width: 840px) {  
+  .text-block1 , .text-block2 , .text-block3{
+    font-size: 10px;
+    width: auto;
+  }  
+  #tabs{
+    top: 97px;
+  }
+ }
+ @media only screen and (min-width: 1140px) {  
+
+  #tabs{
+    left: 40%;
+  }
+ }
+
+ /* Ag-grid styling */
+
+ .ag-cell {
+  border-right: 1px solid #ccc !important;
+  font-size: 16px;
+}
+.ag-header-cell-text{
+      font-size: 16px;
+  }
+
+
+  /* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #47A8F5; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 0 0 1em 1em;
+  text-align: center;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
