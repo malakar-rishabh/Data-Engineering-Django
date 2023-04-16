@@ -16,7 +16,6 @@ def login(request):
                          password=password)
         if x is not None:
             auth_login(request, x)
-            messages.success(request, 'Logged in successfully')
             return redirect('dashboard')
         else:
             messages.error(request, 'Invalid Username or Password')

@@ -13,17 +13,22 @@
 
 <body>
     <div class="container">
-        {% if messages %}
+        <!-- {% if messages %}
     {% for message in messages %}
         <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none'; ">&times;</span>
             {{ message }}
           </div>
           {% endfor %}
-          {% endif %}
+          {% endif %} -->
         
         <div class="form-box">
             <h1>Login</h1>
+            {% if messages %}
+            {% for message in messages %}
+               <div class="error-msg"><span><i class="fa-solid fa-circle-info fa-lg"></i></span> {{ message }}</div>
+                  {% endfor %}
+                  {% endif %}
             <form action="" method="post">
                 {% csrf_token %}
                 <div class="input-group">
