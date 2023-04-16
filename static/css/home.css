@@ -252,3 +252,100 @@ table tr:last-child td:last-child {
 .closebtn:hover {
   color: black;
 }
+
+.sub-menu-wrap{
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.open-menu{
+  max-height: 400px;
+}
+
+.sub-menu{
+  background: rgb(252, 252, 252);
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #9e9e9e;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.user-info{
+  display: flex;
+  align-items: center;
+}
+
+.user-info h3{
+  font-weight: 600;
+}
+
+.user-info .profile-pic{
+  width: 60px;
+  margin-right: 15px;
+}
+
+.sub-menu hr{
+  border: 0;
+  height: 2px;
+  width: 100%;
+  background: #ccc;
+  margin: 0;
+}
+
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+
+.sub-menu-link p{
+  width: 100%;
+  text-align: left;
+}
+
+.sub-menu-link .sub-menu-icon{
+  width: 40px;
+  background: #e5e5e5;
+  padding: 8px;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+
+.sub-menu-link .arrow{
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+
+.sub-menu-link:hover .arrow{
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+  font-weight: 600;
+}
+
+#profileImage {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #512DA8;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  margin: 20px 0;
+  border: 1px solid rgb(65, 247, 65);
+  cursor: pointer;
+}

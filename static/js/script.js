@@ -6,3 +6,8 @@ function showDiv(divId) {
     var otherDiv = document.getElementById(otherDivId);
     otherDiv.style.display = "none";
   }
+
+function toggleMenu(){
+    let subMenu = document.getElementById('subMenu');
+    subMenu.classList.toggle('open-menu');
+}
