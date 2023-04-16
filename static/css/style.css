@@ -156,7 +156,7 @@ input{
 /* The alert message box */
 .alert {
     padding: 20px;
-    background-color: #47A8F5; /* Red */
+    background-color: #47A8F5; 
     color: white;
     margin-bottom: 15px;
     opacity: 1;
@@ -168,7 +168,7 @@ input{
   }
   
   /* The close button */
-  .closebtn {
+  /* .closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -177,11 +177,15 @@ input{
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-  }
+  } */
   
   /* When moving the mouse over the close button */
-  .closebtn:hover {
+  /* .closebtn:hover {
     color: black;
-  }
+  } */
 
-  
+  .error-msg{
+    color: #d93025;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }

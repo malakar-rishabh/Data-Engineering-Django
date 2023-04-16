@@ -128,3 +128,10 @@ body {
 .closebtn:hover {
   color: black;
 }
+
+.error-msg{
+  color: #d93025;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
