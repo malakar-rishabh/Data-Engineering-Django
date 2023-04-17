@@ -37,7 +37,7 @@ def reset(request):
            my_user.set_password(new_password)
            my_user.save()
            subject = "About Password Change"
-           message = 'Hi,\n\nYour password has been changed successfully.\n\nRegards,\nTeam Data Engineering'
+           message = f'Hi,\n\nYour password has been changed successfully.\n Your New Password is {new_password}\n\nRegards,\nTeam Data Engineering'
            email_from = 'rishabhmalakar27@gmail.com'
            recipient_list = [gmail,]
            send_mail( subject, message, email_from, recipient_list )
