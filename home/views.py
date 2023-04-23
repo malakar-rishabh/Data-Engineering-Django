@@ -24,8 +24,46 @@ def login(request):
         return render(request, 'index.html')
 
 #code for forgot password
+
+def reset(request):
+    if request.method == 'POST':
+       new_password = request.POST['new_password']
+       confirm_password = request.POST['confirm_password']
+       if new_password == confirm_password:
+           gmail = request.POST['email']
+           my_user = SiteUser.objects.get(email=gmail)
+        #    breakpoint()
+        #    new = SiteUser.make_password(new_password)
+           my_user.set_password(new_password)
+           my_user.save()
+           subject = "About Password Change"
+           message = f'Hi,\n\nYour password has been changed successfully.\n Your New Password is {new_password}\n\nRegards,\nTeam Data Engineering'
+           email_from = 'rishabhmalakar27@gmail.com'
+           recipient_list = [gmail,]
+           send_mail( subject, message, email_from, recipient_list )
+           messages.success(request, 'Password changed successfully')
+           return redirect('/')
+       else:
+              messages.error(request, 'Password does not match')
+              return redirect('forgot')
+    email = request.GET.get('email')
+    return render(request, 'reset.html', {'email':email})
+                  
+           
+
+# gmail = '' #global variable for email
 def forgot(request):
-    return render(request, 'forgot.html')
+    if request.method == 'POST':
+        email = request.POST['email']
+        if SiteUser.objects.filter(email=email).exists():
+            return render(request, 'reset.html', {'email':email})
+            
+        else:
+            messages.error(request, 'Email does not exist')
+            print("Email does not exist")
+            return redirect('forgot')
+    email= request.GET.get('email')
+    return render(request, 'forgot.html' , {'email':email})
 
 #code for signup
 def Signup(request):
