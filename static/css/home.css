@@ -286,11 +286,6 @@ table tr:last-child td:last-child {
   font-weight: 600;
 }
 
-.user-info .profile-pic{
-  width: 60px;
-  margin-right: 15px;
-}
-
 .sub-menu hr{
   border: 0;
   height: 2px;
@@ -313,7 +308,7 @@ table tr:last-child td:last-child {
 }
 
 .sub-menu-link .sub-menu-icon{
-  width: 40px;
+  width: 36px;
   background: #e5e5e5;
   padding: 8px;
   margin-right: 15px;
@@ -333,10 +328,13 @@ table tr:last-child td:last-child {
   font-weight: 600;
 }
 
-#profileImage {
+#profileImage{
   position: absolute;
   top: 10px;
   right: 40px;
+}
+
+#profileImage , #profileImage1 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -349,3 +347,4 @@ table tr:last-child td:last-child {
   border: 1px solid rgb(65, 247, 65);
   cursor: pointer;
 }
+

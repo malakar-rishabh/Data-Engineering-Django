@@ -18,6 +18,8 @@ urlpatterns = [
     path('signup/', views.Signup, name='signup'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', views.logout, name='logout'),
+    path('profile/', views.profile, name='profile'),
+    path('update-profile/', views.update_profile, name='update_profile'),
     path('reset/', views.reset, name='reset'),
     #Password Reset
     # path('reset_password/' , auth_views.PasswordResetView.as_view(), name="reset_password"),

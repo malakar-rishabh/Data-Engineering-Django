@@ -110,3 +110,39 @@ def logout(request):
     auth_logout(request)
     messages.success(request, 'Logged out successfully')
     return redirect('/')
+
+#code for profile page
+@login_required(login_url='/')
+def profile(request):
+    if request.user.is_authenticated:
+        context = {'first_name': request.user.first_name,
+                   'last_name': request.user.last_name,
+                   'email': request.user.email,
+                   'company_name': request.user.company_name,
+                   'contact_number': request.user.contact_number,
+                   }
+        return render(request, 'profile.html', context)
+    else:
+        return render(request, 'index.html')
+    
+    
+
+#code for updating user details
+def update_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.email = request.POST.get('email')
+        user.contact_number = request.POST.get('contact_number')
+        user.company_name = request.POST.get('company_name')
+        user.save()
+        return redirect('profile')
+    else:
+        user = request.user
+        context = {'first_name': user.first_name,
+                   'last_name': user.last_name,
+                   'email': user.email,
+                   'contact_number': user.contact_number,
+                   'company_name': user.company_name}
+        return render(request, 'profile.html', context)
