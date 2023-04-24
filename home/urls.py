@@ -20,6 +20,7 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('profile/', views.profile, name='profile'),
     path('update-profile/', views.update_profile, name='update_profile'),
+    path('update-password/', views.update_password, name='update_password'),
     path('reset/', views.reset, name='reset'),
     #Password Reset
     # path('reset_password/' , auth_views.PasswordResetView.as_view(), name="reset_password"),

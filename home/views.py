@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import SiteUser
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.contrib.auth import update_session_auth_hash
 
 # code for login
 def login(request):
@@ -146,3 +147,33 @@ def update_profile(request):
                    'contact_number': user.contact_number,
                    'company_name': user.company_name}
         return render(request, 'profile.html', context)
+    
+
+#code for updating password using old password
+def update_password(request):
+    if request.method == 'POST':
+        # get old password from form data
+        old_password = request.POST.get('old_password')
+        # get new password from form data
+        new_password = request.POST.get('new_password')
+        # get confirm new password from form data
+        confirm_password = request.POST.get('confirm_password')
+        # check if the new password and confirm password match
+        if new_password != confirm_password:
+            messages.error(request, 'New password and confirm password do not match')
+            return redirect('profile')
+        # authenticate the user with the old password
+        user = authenticate(username=request.user.username, password=old_password)
+        if user is not None:
+            # update the user's password
+            user.set_password(new_password)
+            user.save()
+            # update the session with the new hashed password
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Password updated successfully')
+            return redirect('profile')
+        else:
+            messages.error(request, 'Old password is incorrect')
+            return redirect('profile')
+    else:
+        return render(request, 'profile.html')
